@@ -6,9 +6,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.park.quest.Color
+import com.park.quest.components.Avatar
 import com.park.quest.components.NavItem
 import com.park.quest.routes.AppRoutes
 import com.park.quest.screens.Utility.NAV_ITEM_HEIGHT
@@ -26,6 +29,14 @@ fun Home(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Avatar()
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(text = "Kavya Malik", color = androidx.compose.ui.graphics.Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+
+        Spacer(modifier = Modifier.height(24.dp))
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
