@@ -9,19 +9,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.park.quest.Color
 import com.park.quest.components.Avatar
 import com.park.quest.components.NavItem
 import com.park.quest.routes.AppRoutes
 import com.park.quest.screens.Utility.NAV_ITEM_HEIGHT
+import com.park.quest.viewmodels.AppViewModel
+import com.park.quest.viewmodels.LocalAppViewModel
 
 /**
  * Created by Nirbhay Pherwani on 7/23/2023.
  */
 
 @Composable
-fun Home(navController: NavController) {
+fun Home() {
+    val navController: NavHostController? = LocalAppViewModel.current.appViewModel?.navController
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -54,7 +60,7 @@ fun Home(navController: NavController) {
                 shape = RoundedCornerShape(0, 25, 25, 25),
                 buttonText = "Discover",
                 buttonTextColor = Color.DarkGrey,
-                onClick = { navController.navigate(AppRoutes.SEARCH.name) }
+                onClick = { navController?.navigate(AppRoutes.SEARCH.name) }
             )
 
             NavItem(
@@ -67,7 +73,7 @@ fun Home(navController: NavController) {
                 textColor = Color.DarkGrey,
                 shape = RoundedCornerShape(25),
                 buttonTextColor = Color.DarkGrey,
-                onClick = { navController.navigate(AppRoutes.ABOUT.name) }
+                onClick = { navController?.navigate(AppRoutes.ABOUT.name) }
             )
         }
         Row {
@@ -80,7 +86,7 @@ fun Home(navController: NavController) {
                 textColor = Color.DarkGrey,
                 shape = RoundedCornerShape(topStartPercent = 25, bottomEndPercent = 25),
                 buttonTextColor = Color.DarkGrey,
-                onClick = { navController.navigate("${AppRoutes.STAMPS.name}/0/0") }
+                onClick = { navController?.navigate("${AppRoutes.STAMPS.name}/0/0") }
             )
         }
     }

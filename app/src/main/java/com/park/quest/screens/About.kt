@@ -9,6 +9,6 @@ import androidx.navigation.NavController
  */
 
 @Composable
-fun About(navController: NavController){
+fun About(){
     Text("This is about")
 }

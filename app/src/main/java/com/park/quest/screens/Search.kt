@@ -9,6 +9,6 @@ import androidx.navigation.NavController
  */
 
 @Composable
-fun Search(navController: NavController){
+fun Search(){
     Text("This is search")
 }

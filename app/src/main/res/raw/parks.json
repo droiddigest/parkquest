@@ -1,0 +1,96 @@
+{
+  "parks": [
+    {
+      "pageId": 1,
+      "name": "Yosemite",
+      "aboutUrl": "https://www.nps.gov/yose/index.htm"
+    },
+    {
+      "pageId": 2,
+      "name": "Glacier",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 3,
+      "name": "Rocky Mountain",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 4,
+      "name": "Yellowstone",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 5,
+      "name": "Yosemite",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 6,
+      "name": "Yosemite",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 7,
+      "name": "Yosemite",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 8,
+      "name": "Yosemite",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 9,
+      "name": "Yosemite",
+      "aboutUrl": ""
+    },
+    {
+      "pageId": 10,
+      "name": "Yosemite",
+      "aboutUrl": ""
+    }
+  ],
+  "stamps": [
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    },
+    {
+      "stampId": 1,
+      "name": "yosemite"
+    }
+  ]
+}
