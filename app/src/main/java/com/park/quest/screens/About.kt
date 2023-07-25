@@ -63,7 +63,7 @@ fun AboutList(items: List<AboutItem>) {
         Text(
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             text = "Here, you can find the source code for the app and supporting medium articles for explanations. " +
-                    "If you would like to collaborate with us, feel free to contact us on LinkedIn",
+                    "If you would like to collaborate with us, feel free to contact us on LinkedIn!",
             color = Color.White,
             fontWeight = FontWeight.Normal,
             fontSize = 18.sp,
