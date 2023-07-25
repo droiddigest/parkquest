@@ -1,11 +1,13 @@
 package com.park.quest.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,9 +39,13 @@ fun Home() {
         derivedStateOf { state.count { it.time > 0 } }
     }
 
+    val gradientColors = listOf(Color.Yellow, Color.Orange)
+    val gradientBrush = Brush.horizontalGradient(gradientColors)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(gradientBrush)
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -50,12 +56,17 @@ fun Home() {
 
         Text(text = "Kavya Malik", color = androidx.compose.ui.graphics.Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
 
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(text = "$parksVisitedCounter Parks Visited", color = androidx.compose.ui.graphics.Color.White, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
+
         Spacer(modifier = Modifier.height(24.dp))
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .wrapContentHeight(),
+                .wrapContentHeight()
+            ,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             NavItem(
