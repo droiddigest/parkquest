@@ -5,22 +5,21 @@ import kotlinx.coroutines.flow.Flow
 
 /**
  * Created by Nirbhay Pherwani on 7/24/2023.
- * Email - npherwani@reachmobi.com
  */
 
 @Dao
 interface ParkDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addPark(park: Park)
 
     @Delete
     fun removePark(park: Park)
 
-    @Query("SELECT * FROM park ORDER BY pageId")
+    @Query("SELECT * FROM park GROUP BY pageId ORDER BY pageId ")
     fun getParks(): Flow<List<Park>>
 
-    @Query("SELECT * FROM park where pageId = :page")
-    fun getPark(page: Int): Flow<Park>
+    @Query("SELECT * FROM park where pageId = :page and time <> -1 ORDER BY pageId")
+    fun getParks(page: Int): Flow<List<Park>>
 
     @Transaction
     fun addParks(parks: List<Park>) {

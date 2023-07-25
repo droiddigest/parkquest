@@ -38,8 +38,9 @@ fun App(){
             }
 
             composable("${AppRoutes.STAMPS.name}/{horizontalPageIndex}/{verticalPageIndex}") { backStackEntry ->
-                val verticalPageIndex = backStackEntry.arguments?.getInt("verticalPageIndex")
-                val horizontalPageIndex = backStackEntry.arguments?.getInt("horizontalPageIndex")
+                val verticalPageIndex = backStackEntry.arguments?.getString("verticalPageIndex")?.toInt()
+                val horizontalPageIndex = backStackEntry.arguments?.getString("horizontalPageIndex")?.toInt()
+
 
                 if(verticalPageIndex != null && horizontalPageIndex != null) {
                     Stamps(horizontalPageIndex, verticalPageIndex)

@@ -5,6 +5,6 @@ package com.park.quest.rawdata
  */
 data class RawPark (val name: String, val pageId: Int, val aboutUrl: String)
 
-data class RawStamp(val name: String)
+data class RawStamp(val name: String, val stampId: Int)
 
 data class RawParkStamp(val parks: List<RawPark>, val stamps: List<RawStamp>)

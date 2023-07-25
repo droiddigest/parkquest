@@ -8,48 +8,95 @@
     {
       "pageId": 2,
       "name": "Glacier",
-      "aboutUrl": ""
+      "aboutUrl": "https://www.nps.gov/glac/index.htm"
     },
     {
       "pageId": 3,
       "name": "Rocky Mountain",
-      "aboutUrl": ""
+      "aboutUrl": "https://www.nps.gov/romo/index.htm"
     },
     {
       "pageId": 4,
       "name": "Yellowstone",
-      "aboutUrl": ""
+      "aboutUrl": "https://www.nps.gov/yell/index.htm"
     },
     {
       "pageId": 5,
-      "name": "Yosemite",
-      "aboutUrl": ""
+      "name": "Arches",
+      "aboutUrl": "https://www.nps.gov/arch/index.htm"
     },
     {
       "pageId": 6,
-      "name": "Yosemite",
-      "aboutUrl": ""
+      "name": "Death Valley",
+      "aboutUrl": "https://www.nps.gov/deva/index.htm"
     },
     {
       "pageId": 7,
-      "name": "Yosemite",
-      "aboutUrl": ""
+      "name": "Everglades",
+      "aboutUrl": "https://www.nps.gov/ever/index.htm"
     },
     {
       "pageId": 8,
-      "name": "Yosemite",
-      "aboutUrl": ""
+      "name": "Grand Canyon",
+      "aboutUrl": "https://www.nps.gov/grca/index.htm"
     },
     {
       "pageId": 9,
-      "name": "Yosemite",
-      "aboutUrl": ""
+      "name": "Grand Teton",
+      "aboutUrl": "https://www.nps.gov/grte/index.htm"
     },
     {
       "pageId": 10,
-      "name": "Yosemite",
-      "aboutUrl": ""
+      "name": "Joshua Tree",
+      "aboutUrl": "https://www.nps.gov/jotr/index.htm"
+    },
+    {
+      "pageId": 11,
+      "name": "Kenai Fjords",
+      "aboutUrl": "https://www.nps.gov/kefj/index.htm"
+    },
+    {
+      "pageId": 12,
+      "name": "Mount Rainier",
+      "aboutUrl": "https://www.nps.gov/mora/index.htm"
+    },
+    {
+      "pageId": 13,
+      "name": "Olympic",
+      "aboutUrl": "https://www.nps.gov/olym/index.htm"
+    },
+
+    {
+      "pageId": 14,
+      "name": "Redwood",
+      "aboutUrl": "https://www.nps.gov/redw/index.htm"
+    },
+
+    {
+      "pageId": 15,
+      "name": "Saguaro",
+      "aboutUrl": "https://www.nps.gov/sagu/index.htm"
+    },
+
+    {
+      "pageId": 16,
+      "name": "Shenandoah",
+      "aboutUrl": "https://www.nps.gov/shen/index.htm"
+    },
+
+    {
+      "pageId": 17,
+      "name": "Voyageurs",
+      "aboutUrl": "https://www.nps.gov/voya/index.htm"
+    },
+
+
+    {
+      "pageId": 18,
+      "name": "Zion",
+      "aboutUrl": "https://www.nps.gov/zion/index.htm"
     }
+
   ],
   "stamps": [
     {
@@ -57,40 +104,81 @@
       "name": "yosemite"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 2,
+      "name": "glacier"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 3,
+      "name": "rocky_mountain"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 4,
+      "name": "yellowstone"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 5,
+      "name": "arches"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 6,
+      "name": "death_valley"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 7,
+      "name": "everglades"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 8,
+      "name": "grand_canyon"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 9,
+      "name": "grand_teton"
     },
     {
-      "stampId": 1,
-      "name": "yosemite"
+      "stampId": 10,
+      "name": "joshua_tree"
+    },
+
+    {
+      "stampId": 11,
+      "name": "kenai_fjords"
+    },
+
+    {
+      "stampId": 12,
+      "name": "mount_rainier"
+    },
+
+    {
+      "stampId": 13,
+      "name": "olympic"
+    },
+
+    {
+      "stampId": 14,
+      "name": "redwood"
+    },
+
+    {
+      "stampId": 15,
+      "name": "saguaro"
+    },
+
+    {
+      "stampId": 16,
+      "name": "shenandoah"
+    },
+
+    {
+      "stampId": 17,
+      "name": "voyageurs"
+    },
+
+    {
+      "stampId": 18,
+      "name": "zion"
     }
+
   ]
 }

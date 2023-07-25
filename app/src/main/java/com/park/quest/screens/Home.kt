@@ -3,7 +3,7 @@ package com.park.quest.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -19,6 +19,7 @@ import com.park.quest.routes.AppRoutes
 import com.park.quest.screens.Utility.NAV_ITEM_HEIGHT
 import com.park.quest.viewmodels.AppViewModel
 import com.park.quest.viewmodels.LocalAppViewModel
+import com.park.quest.viewmodels.ParksViewModel
 
 /**
  * Created by Nirbhay Pherwani on 7/23/2023.
@@ -27,6 +28,14 @@ import com.park.quest.viewmodels.LocalAppViewModel
 @Composable
 fun Home() {
     val navController: NavHostController? = LocalAppViewModel.current.appViewModel?.navController
+
+    val parkViewModel: ParksViewModel = hiltViewModel()
+
+    val state by parkViewModel.parksViewState.collectAsState()
+
+    val parksVisitedCounter by remember(state) {
+        derivedStateOf { state.count { it.time > 0 } }
+    }
 
     Column(
         modifier = Modifier

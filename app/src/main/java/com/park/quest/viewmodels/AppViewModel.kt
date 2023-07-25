@@ -20,6 +20,7 @@ import com.park.quest.database.Stamp
 import com.park.quest.rawdata.RawStamp
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -29,45 +30,8 @@ import kotlinx.coroutines.withContext
  */
 
 @HiltViewModel
-internal class AppViewModel @Inject constructor(
-    @ApplicationContext context: Context,
-    private val parksRepository: ParksRepository
-) : ViewModel() {
+internal class AppViewModel @Inject constructor() : ViewModel() {
     lateinit var navController: NavHostController
-
-    init {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                populateRawData(context)
-            }
-        }
-    }
-
-    private fun populateRawData(context: Context) {
-        val gson = Gson()
-        val rawParkStamp: RawParkStamp =
-            gson.fromJson(Utility.readRawResource(context, R.raw.parks), RawParkStamp::class.java)
-        populateStamps(rawParkStamp.stamps)
-        populateParks(rawParkStamp.parks)
-    }
-
-    private fun populateStamps(rawStamps: List<RawStamp>) {
-        val stamps = mutableListOf<Stamp>()
-        rawStamps.forEach {
-            val stamp = Stamp(name = it.name)
-            stamps.add(stamp)
-        }
-        parksRepository.addStamps(stamps)
-    }
-
-    private fun populateParks(rawParks: List<RawPark>) {
-        val parks = mutableListOf<Park>()
-        rawParks.forEach {
-            val park = Park(pageId = it.pageId, name = it.name, aboutUrl = it.aboutUrl)
-            parks.add(park)
-        }
-        parksRepository.addParks(parks)
-    }
 }
 
 internal val LocalAppViewModel = compositionLocalOf { AppViewModelInfo() }
