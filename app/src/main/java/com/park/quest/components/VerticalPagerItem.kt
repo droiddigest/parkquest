@@ -1,7 +1,6 @@
 package com.park.quest.components
 
 import android.util.Log
-import android.util.Size
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
@@ -12,12 +11,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.park.quest.database.Park
-import com.park.quest.screens.StampsUtility
+import com.park.quest.screens.PassportUtility
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -61,7 +59,7 @@ fun UnsplashRandomPhoto(backGroundSize: IntSize, parkName: String) {
         y.let {
             val extra = y * 0.2F
             val bgY = abs(y.toFloat() - (extra)).toInt()
-            val imageUrl = "${StampsUtility.PHOTOS_ENDPOINT}/${bgX + Random.nextInt(99)}x$bgY?${parkName} national park"
+            val imageUrl = "${PassportUtility.PHOTOS_ENDPOINT}/${bgX + Random.nextInt(99)}x$bgY?${parkName} national park"
             Log.d("Image url", imageUrl)
             AsyncImage(
                 modifier = Modifier

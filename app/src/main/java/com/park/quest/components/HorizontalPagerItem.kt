@@ -8,7 +8,10 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,7 +20,6 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
@@ -28,8 +30,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.park.quest.animations.ScaleAnimation
 import com.park.quest.database.Park
-import com.park.quest.database.ParkStamp
-import com.park.quest.viewmodels.ParksViewModel
+import com.park.quest.database.VisitStamp
+import com.park.quest.viewmodels.PassportViewModel
 import kotlinx.coroutines.delay
 import java.time.Instant
 import java.time.LocalDateTime
@@ -47,25 +49,20 @@ fun HorizontalPagerItem(
     park: Park,
     modifier: Modifier = Modifier,
     padding: Dp = 20.dp,
-    backgroundColor: Color = Color.White,
     textColor: Color = Color.DarkGray,
     textSize: TextUnit = 24.sp,
-    aboutTextSize: TextUnit = 16.sp,
     shape: Shape = RoundedCornerShape(10),
-    pageIndex: Int
 ) {
-    val configuration = LocalConfiguration.current
-    val screenWidth = configuration.screenWidthDp.dp.value.toInt()
 
-    val parksViewModel: ParksViewModel = hiltViewModel()
+    val passportViewModel: PassportViewModel = hiltViewModel()
 
-    var parkStamps by remember {
-        mutableStateOf(emptyList<ParkStamp>())
+    var visitStamps by remember {
+        mutableStateOf(emptyList<VisitStamp>())
     }
 
     LaunchedEffect(Unit) {
-        parksViewModel.getParkStamps(park.pageId).collect { value ->
-            parkStamps = value.filter { it.park.time != -1L }
+        passportViewModel.getVisitStamps(park.id).collect { value ->
+            visitStamps = value
         }
     }
 
@@ -92,7 +89,7 @@ fun HorizontalPagerItem(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 for (i in 0..3 step (2)) {
-                    PageRow(i, park, parkStamps)
+                    PageRow(i, park, visitStamps)
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -105,7 +102,7 @@ fun HorizontalPagerItem(
                 )
                 Button(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = { openUrl(context = context, park.aboutUrl) },
+                    onClick = { openUrl(context = context, park.link) },
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
                     border = BorderStroke(1.dp, com.park.quest.Color.DarkGrey)
                 ) {
@@ -122,19 +119,19 @@ fun openUrl(context: Context, url: String) {
 }
 
 @Composable
-private fun PageRow(index: Int, park: Park, parkStamps: List<ParkStamp>) {
+private fun PageRow(index: Int, park: Park, visitStamps: List<VisitStamp>) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(300.dp),
     ) {
         for (i in 0..1) {
-            val rowItem = getParkStamp(parkStamps, index + i)
+            val rowItem = getVisitStamp(visitStamps, index + i)
             PageStamp(
                 modifier = Modifier
                     .fillMaxSize()
                     .weight(1F),
-                parkStamp = rowItem,
+                visitStamp = rowItem,
                 park = park,
                 position = index + i
             )
@@ -142,17 +139,17 @@ private fun PageRow(index: Int, park: Park, parkStamps: List<ParkStamp>) {
     }
 }
 
-private fun getParkStamp(parkStamps: List<ParkStamp>?, position: Int): ParkStamp? {
-    return parkStamps?.firstOrNull { it.park.position == position }
+private fun getVisitStamp(visitStamp: List<VisitStamp>?, position: Int): VisitStamp? {
+    return visitStamp?.firstOrNull { it.stampPosition == position }
 }
 
 @Composable
-fun PageStamp(modifier: Modifier, park: Park, parkStamp: ParkStamp?, position: Int) {
-    val parksViewModel: ParksViewModel = hiltViewModel()
+fun PageStamp(modifier: Modifier, park: Park, visitStamp: VisitStamp?, position: Int) {
+    val passportViewModel: PassportViewModel = hiltViewModel()
 
     val addStamp: () -> Unit = {
         val rotation = ((Random.nextFloat() * 2) - 1) * 35
-        parksViewModel.addParkStamp(park, position, rotation)
+        passportViewModel.addVisitStamp(park, position, rotation)
     }
 
     val visibility = remember { mutableStateOf(false) }
@@ -162,11 +159,11 @@ fun PageStamp(modifier: Modifier, park: Park, parkStamp: ParkStamp?, position: I
             .border(BorderStroke(2.dp, com.park.quest.Color.DarkGrey))
             .clickable { addStamp.invoke() }
     ) {
-        parkStamp?.let {
+        visitStamp?.let {
             val stampUrl =
-                "${HorizontalPagerItemUtility.STAMP_URL}/${parkStamp.stamp.name}.png"
+                "${HorizontalPagerItemUtility.STAMP_URL}/${visitStamp.park.stamp}.png"
 
-            LaunchedEffect(parkStamp.park.pageId.toString() + ":" + parkStamp.park.position + ":" + parkStamp.park.time) {
+            LaunchedEffect(visitStamp.park.id.toString() + ":" + visitStamp.stampRotation + ":" + visitStamp.visitTime) {
                 // Animate the item when it changes or first appears
                 visibility.value = false
                 delay(200) // Delay for visibility change to take effect
@@ -178,7 +175,7 @@ fun PageStamp(modifier: Modifier, park: Park, parkStamp: ParkStamp?, position: I
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxSize()
-                    .rotate(parkStamp.park.rotation)
+                    .rotate(visitStamp.stampRotation)
             ) {
                 ScaleAnimation(visible = visibility.value) {
                     AsyncImage(

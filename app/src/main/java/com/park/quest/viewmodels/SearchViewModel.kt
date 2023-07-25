@@ -1,12 +1,10 @@
 package com.park.quest.viewmodels
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.park.quest.database.Park
-import com.park.quest.database.ParksRepository
+import com.park.quest.database.PassportRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -21,14 +19,13 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    @ApplicationContext context: Context,
-    private val parksRepository: ParksRepository
+    private val passportRepository: PassportRepository
 ) : ViewModel() {
     private val _searchViewState: MutableStateFlow<List<Park>> =
         MutableStateFlow(emptyList())
     val searchViewState: StateFlow<List<Park>> = _searchViewState.asStateFlow()
 
-    var parksCopy: List<Park> = emptyList()
+    private var parksCopy: List<Park> = emptyList()
 
     init {
         viewModelScope.launch {
@@ -39,7 +36,7 @@ class SearchViewModel @Inject constructor(
     }
 
     private suspend fun getSearchableParks() {
-        parksRepository.getParks().collect {
+        passportRepository.getParks().collect {
             _searchViewState.value = it
             parksCopy = it
         }

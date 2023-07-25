@@ -12,16 +12,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.park.quest.Color
 import com.park.quest.components.Avatar
 import com.park.quest.components.NavItem
 import com.park.quest.routes.AppRoutes
 import com.park.quest.screens.Utility.NAV_ITEM_HEIGHT
-import com.park.quest.viewmodels.AppViewModel
 import com.park.quest.viewmodels.LocalAppViewModel
-import com.park.quest.viewmodels.ParksViewModel
+import com.park.quest.viewmodels.PassportViewModel
 
 /**
  * Created by Nirbhay Pherwani on 7/23/2023.
@@ -31,13 +29,11 @@ import com.park.quest.viewmodels.ParksViewModel
 fun Home() {
     val navController: NavHostController? = LocalAppViewModel.current.appViewModel?.navController
 
-    val parkViewModel: ParksViewModel = hiltViewModel()
+    val passportViewModel: PassportViewModel = hiltViewModel()
 
-    val state by parkViewModel.parksViewState.collectAsState()
+    val state = passportViewModel.parksVisitedState.collectAsState()
 
-    val parksVisitedCounter by remember(state) {
-        derivedStateOf { state.count { it.time > 0 } }
-    }
+    val parksVisitedCounter by remember { state }
 
     val gradientColors = listOf(Color.Yellow, Color.Orange)
     val gradientBrush = Brush.horizontalGradient(gradientColors)

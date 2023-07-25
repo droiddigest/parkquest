@@ -4,25 +4,11 @@ import android.content.Context
 import androidx.compose.runtime.*
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
-import com.google.gson.Gson
-import com.park.quest.database.ParksRepository
-import com.park.quest.rawdata.RawPark
-import com.park.quest.rawdata.RawParkStamp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.io.InputStream
 import java.util.*
 import javax.inject.Inject
-import com.park.quest.R
-import com.park.quest.database.Park
-import com.park.quest.database.Stamp
-import com.park.quest.rawdata.RawStamp
-import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 /**

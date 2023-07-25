@@ -1,8 +1,8 @@
 package com.park.quest.di
 
 import android.content.Context
-import com.park.quest.database.ParksDatabase
-import com.park.quest.database.ParksRepository
+import com.park.quest.database.PassportDatabase
+import com.park.quest.database.PassportRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,10 +17,10 @@ import dagger.hilt.components.SingletonComponent
 object RepositoryModule {
 
     @Provides
-    fun provideParksRepository(
+    fun providePassportRepository(
         @ApplicationContext appContext: Context,
-        parksDatabase: ParksDatabase
-    ): ParksRepository {
-        return ParksRepository(appContext, parksDatabase)
+        passportDatabase: PassportDatabase
+    ): PassportRepository {
+        return PassportRepository(appContext, passportDatabase)
     }
 }

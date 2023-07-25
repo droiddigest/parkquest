@@ -2,7 +2,7 @@ package com.park.quest.di
 
 import android.content.Context
 import androidx.room.Room
-import com.park.quest.database.ParksDatabase
+import com.park.quest.database.PassportDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,8 +19,8 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun providesAppsDatabase(@ApplicationContext appContext: Context) : ParksDatabase {
-        return Room.databaseBuilder(appContext, ParksDatabase::class.java, ParksDatabase.DATABASE_NAME)
+    fun providesAppsDatabase(@ApplicationContext appContext: Context) : PassportDatabase {
+        return Room.databaseBuilder(appContext, PassportDatabase::class.java, PassportDatabase.DATABASE_NAME)
             .build()
     }
 }

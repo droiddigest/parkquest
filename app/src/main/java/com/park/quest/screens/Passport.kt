@@ -23,9 +23,9 @@ import com.park.quest.animations.SmallScaleAnimation
 import com.park.quest.components.HorizontalPagerItem
 import com.park.quest.components.VerticalPagerItem
 import com.park.quest.routes.AppRoutes
-import com.park.quest.screens.StampsUtility.PHOTOS_COUNT
+import com.park.quest.screens.PassportUtility.PHOTOS_COUNT
 import com.park.quest.viewmodels.LocalAppViewModel
-import com.park.quest.viewmodels.ParksViewModel
+import com.park.quest.viewmodels.PassportViewModel
 
 /**
  * Created by Nirbhay Pherwani on 7/23/2023.
@@ -33,12 +33,12 @@ import com.park.quest.viewmodels.ParksViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Stamps(horizontalPageIndex: Int = 0, verticalPageIndex: Int = 0) {
+fun Passport(horizontalPageIndex: Int = 0, verticalPageIndex: Int = 0) {
     val navController: NavHostController? = LocalAppViewModel.current.appViewModel?.navController
 
-    val parkViewModel: ParksViewModel = hiltViewModel()
+    val passportViewModel: PassportViewModel = hiltViewModel()
 
-    val parks by parkViewModel.parksViewState.collectAsState()
+    val parks by passportViewModel.parksViewState.collectAsState()
 
     val horizontalPagerState = rememberPagerState(initialPage = horizontalPageIndex)
 
@@ -84,7 +84,7 @@ fun Stamps(horizontalPageIndex: Int = 0, verticalPageIndex: Int = 0) {
                 beyondBoundsPageCount = 6
             ) { verticalPageIndex ->
                 if (verticalPageIndex == 0) {
-                    HorizontalPagerItem(park = park, pageIndex = it)
+                    HorizontalPagerItem(park = park)
                 } else {
                     VerticalPagerItem(park = park)
                 }
@@ -94,7 +94,7 @@ fun Stamps(horizontalPageIndex: Int = 0, verticalPageIndex: Int = 0) {
     }
 }
 
-object StampsUtility {
+object PassportUtility {
     const val PHOTOS_COUNT = 10
     const val PHOTOS_ENDPOINT = "https://source.unsplash.com/random"
 }

@@ -77,7 +77,7 @@ fun SearchItems(parks: List<Park>, navController: NavController?) {
                 .padding(10.dp)
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .clickable { navController?.navigate("${AppRoutes.STAMPS}/${park.pageId - 1}/0") }) {
+                .clickable { navController?.navigate("${AppRoutes.STAMPS}/${park.id - 1}/0") }) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = park.name,

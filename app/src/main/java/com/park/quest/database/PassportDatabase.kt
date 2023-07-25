@@ -10,15 +10,15 @@ import androidx.room.TypeConverters
 @Database(
     entities = [
         Park::class,
-        Stamp::class
+        VisitStamp::class
     ],
     version = 1
 )
 
 
-abstract class ParksDatabase : RoomDatabase() {
+abstract class PassportDatabase : RoomDatabase() {
 
-    abstract val parkDao: ParkDao
+    abstract val passportDao: PassportDao
 
     companion object {
         const val DATABASE_NAME = "park_quest_db"

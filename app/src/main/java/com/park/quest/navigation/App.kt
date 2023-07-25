@@ -1,8 +1,6 @@
 package com.park.quest.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -10,8 +8,7 @@ import com.park.quest.routes.AppRoutes
 import com.park.quest.screens.About
 import com.park.quest.screens.Home
 import com.park.quest.screens.Search
-import com.park.quest.screens.Stamps
-import com.park.quest.viewmodels.LocalAppViewModel
+import com.park.quest.screens.Passport
 import com.park.quest.viewmodels.ProvideAppViewModel
 
 /**
@@ -43,12 +40,12 @@ fun App(){
 
 
                 if(verticalPageIndex != null && horizontalPageIndex != null) {
-                    Stamps(horizontalPageIndex, verticalPageIndex)
+                    Passport(horizontalPageIndex, verticalPageIndex)
                 }
                 else if(verticalPageIndex == null && horizontalPageIndex != null) {
-                    Stamps(horizontalPageIndex)
+                    Passport(horizontalPageIndex)
                 } else {
-                    Stamps()
+                    Passport()
                 }
             }
         }
