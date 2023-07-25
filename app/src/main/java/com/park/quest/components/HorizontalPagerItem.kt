@@ -31,6 +31,10 @@ import com.park.quest.database.Park
 import com.park.quest.database.ParkStamp
 import com.park.quest.viewmodels.ParksViewModel
 import kotlinx.coroutines.delay
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import kotlin.random.Random
 
 
@@ -112,7 +116,7 @@ fun HorizontalPagerItem(
     }
 }
 
-private fun openUrl(context: Context, url: String){
+private fun openUrl(context: Context, url: String) {
     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     context.startActivity(browserIntent)
 }
@@ -157,20 +161,25 @@ fun PageStamp(modifier: Modifier, park: Park, parkStamp: ParkStamp?, position: I
         modifier = modifier
             .border(BorderStroke(2.dp, com.park.quest.Color.DarkGrey))
             .clickable { addStamp.invoke() }
-            .rotate(parkStamp?.park?.rotation ?: 50F)
     ) {
         parkStamp?.let {
             val stampUrl =
                 "${HorizontalPagerItemUtility.STAMP_URL}/${parkStamp.stamp.name}.png"
 
-            LaunchedEffect(parkStamp.park.pageId.toString() + ":" + parkStamp.park.pageId) {
+            LaunchedEffect(parkStamp.park.pageId.toString() + ":" + parkStamp.park.position + ":" + parkStamp.park.time) {
                 // Animate the item when it changes or first appears
                 visibility.value = false
                 delay(200) // Delay for visibility change to take effect
                 visibility.value = true
             }
 
-            Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .rotate(parkStamp.park.rotation)
+            ) {
                 ScaleAnimation(visible = visibility.value) {
                     AsyncImage(
                         modifier = Modifier
@@ -187,10 +196,21 @@ fun PageStamp(modifier: Modifier, park: Park, parkStamp: ParkStamp?, position: I
                     )
                 }
             }
+
         }
     }
 }
 
 object HorizontalPagerItemUtility {
     const val STAMP_URL = "https://ik.imagekit.io/droiddigest/parkquest"
+
+    fun millisToReadableDate(millis: Long): String {
+        return try {
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd @ HH:mm")
+            val date = LocalDateTime.ofInstant(Instant.ofEpochMilli(millis), ZoneId.systemDefault())
+            date.format(formatter)
+        } catch (e: Exception) {
+            ""
+        }
+    }
 }
