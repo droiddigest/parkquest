@@ -22,7 +22,7 @@ import com.park.quest.R
  */
 
 @Composable
-fun Avatar(){
+fun Avatar(drawableId: Int = R.drawable.avatar, contentText: String = "Kavya Malik"){
     val rainbowColorsBrush = remember {
         Brush.sweepGradient(
             listOf(
@@ -39,8 +39,8 @@ fun Avatar(){
     }
     val borderWidth = 4.dp
     Image(
-        painter = painterResource(id = R.drawable.avatar),
-        contentDescription = "Kavya Malik",
+        painter = painterResource(id = drawableId),
+        contentDescription = contentText,
         contentScale = ContentScale.Crop,
         modifier = Modifier
             .size(150.dp)

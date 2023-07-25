@@ -116,7 +116,7 @@ fun HorizontalPagerItem(
     }
 }
 
-private fun openUrl(context: Context, url: String) {
+fun openUrl(context: Context, url: String) {
     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     context.startActivity(browserIntent)
 }
