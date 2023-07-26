@@ -1,4 +1,4 @@
-## Park Quest - Virtual National Parks Passport App
+![image](https://github.com/droiddigest/parkquest/assets/19684961/9ab27b9c-34fc-4e16-841d-609b46c3c3d1)## Park Quest - Virtual National Parks Passport App
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=2SWVUejbD4E" target="_blank">
 <img src="https://github.com/droiddigest/parkquest/blob/master/stamps/youtube_screenshot.png?raw=true" alt="Park Quest Demo Video" border="10" />
@@ -50,6 +50,10 @@ horizontally and vertically and have seamless navigation between standalone and 
 * ImageKit for storing images.
 * Coil for async handling of images.
 * Gson for parsing JSON.
+
+### App Screenshots
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*h0TzmfgflVoEKKj5GbwG5A.png"/>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*9qpu2uB7o4A7-5Zye_uaMg.png"/>
 
 ### App Overview
 
