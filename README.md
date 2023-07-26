@@ -4,6 +4,8 @@
 <img src="https://github.com/droiddigest/parkquest/blob/master/stamps/youtube_screenshot.png?raw=true" alt="Park Quest Demo Video" border="10" />
 </a>
 
+
+### Introduction:
 Did you know that when you visit a park in North America, there's a passport available at visitor centers? This unique passport lets you collect stamps, becoming cherished memories as you 
 journey through the breathtaking national parks from west to east.
 To enhance the excitement and interactivity of our medium article's topic, we embarked on a fascinating journey of creating a virtual national park passport. We are calling it Park Quest. This passport features intricately nested pages that smoothly flow both
