@@ -1,7 +1,7 @@
 ## Park Quest - Virtual National Parks Passport App
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=2SWVUejbD4E" target="_blank">
-<img src="http://img.youtube.com/vi/2SWVUejbD4E/mqdefault.jpg" alt="Park Quest Demo Video" width="350" height="225" border="10" />
+<img src="https://github.com/droiddigest/parkquest/blob/master/stamps/youtube_screenshot.png?raw=true" alt="Park Quest Demo Video" border="10" />
 </a>
 
 Did you know that when you visit a park in North America, there's a passport available at visitor centers? This unique passport lets you collect stamps, becoming cherished memories as you 
