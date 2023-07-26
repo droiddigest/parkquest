@@ -5,13 +5,13 @@
 </a>
 
 
-### Introduction:
+### Introduction
 Did you know that when you visit a park in North America, there's a passport available at visitor centers? This unique passport lets you collect stamps, becoming cherished memories as you 
 journey through the breathtaking national parks from west to east.
 To enhance the excitement and interactivity of our medium article's topic, we embarked on a fascinating journey of creating a virtual national park passport. We are calling it Park Quest. This passport features intricately nested pages that smoothly flow both
 horizontally and vertically and have seamless navigation between standalone and paged elements. The result is a stunning and immersive experience that will leave you in awe!
 
-### Developer Team:
+### Developer Team
 * Nirbhay Pherwani - https://linkedin.com/in/nirbhaypherwani
 * Raghul Krishnan - https://linkedin.com/in/raghul-krishnan
 
@@ -47,9 +47,9 @@ horizontally and vertically and have seamless navigation between standalone and 
 * Room for database needs. 
 * Canva was used to source stamp images for national parks.
 * Unsplash for random images shown for each passport page.
-* ImageKit for storing images
-* Coil for async handling of images
-* Gson for parsing JSON
+* ImageKit for storing images.
+* Coil for async handling of images.
+* Gson for parsing JSON.
 
 ### App Overview
 
