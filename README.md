@@ -1,4 +1,4 @@
-![image](https://github.com/droiddigest/parkquest/assets/19684961/9ab27b9c-34fc-4e16-841d-609b46c3c3d1)## Park Quest - Virtual National Parks Passport App
+## Park Quest - Virtual National Parks Passport App
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=2SWVUejbD4E" target="_blank">
 <img src="https://github.com/droiddigest/parkquest/blob/master/stamps/youtube_screenshot.png?raw=true" alt="Park Quest Demo Video" border="10" />
