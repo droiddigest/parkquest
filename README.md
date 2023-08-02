@@ -65,6 +65,3 @@ horizontally and vertically and have seamless navigation between standalone and 
 
 ### Note
 For developers out there, if you wish to add more features and contribute to the project, feel free to do so. 
-
-### License
-This project is licensed under the MIT License - see the LICENSE.md file for details
