@@ -1,7 +1,7 @@
 ## Park Quest - Virtual National Parks Passport App
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=2SWVUejbD4E" target="_blank">
-<img src="https://github.com/droiddigest/parkquest/blob/master/stamps/youtube_screenshot.png?raw=true" alt="Park Quest Demo Video" border="10" />
+<img src="https://github.com/droiddigest/parkquest/blob/master/app/youtube_screenshot.png?raw=true" alt="Park Quest Demo Video" border="10" />
 </a>
 
 
