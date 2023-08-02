@@ -59,6 +59,10 @@ horizontally and vertically and have seamless navigation between standalone and 
 
 <img src="https://cdn-images-1.medium.com/max/1600/1*SekuYjDdxy9rPHtgUWe4ZA.png"/>
 
+### Resource Credits
+* Canva was used to source stamp images for national parks that are shown in the demo and used in the app. These images are for demonstration and one time use only. 
+* Unsplash for random images shown for each passport page. Used the random endpoint provided by unsplash for the same. 
+
 ### Note
 For developers out there, if you wish to add more features and contribute to the project, feel free to do so. 
 
